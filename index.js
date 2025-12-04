@@ -222,21 +222,23 @@ async function selectDepartment(dep) {
 // Normalizar nombres para que coincidan con imágenes en GitHub Pages
 function normalizeFileName(name) {
   return name
-    .toLowerCase()
-    .normalize("NFD")                    // Separar acentos
-    .replace(/[\u0300-\u036f]/g, "")    // Quitar acentos
-    .replace(/[^a-z0-9]/g, "_")         // Reemplazar espacios y símbolos por _
-    .replace(/_+/g, "_")                // Evitar múltiples guiones bajos
-    .trim();
+    .normalize("NFD")                      // separar tildes
+    .replace(/[\u0300-\u036f]/g, "")       // quitar tildes
+    .trim()
+    .toLowerCase()                         // minúsculas obligatorias
+    .replace(/[^a-z0-9]+/g, "-");          // reemplazar todo por guiones
 }
 
 function renderDepartmentDetail(d) {
   clearCard(departmentDetail);
-  
+
   const fileName = normalizeFileName(d.name);
   const imgPath = `img/${fileName}.png`;
 
-  const capitalName = (d.cityCapital && d.cityCapital.name) || d.cityCapital || 'No disponible';
+  const capitalName =
+    (d.cityCapital && d.cityCapital.name) ||
+    d.cityCapital ||
+    "No disponible";
 
   departmentDetail.innerHTML = `
     <div class="card-body">
@@ -245,13 +247,24 @@ function renderDepartmentDetail(d) {
              onerror="this.src='img/default.png'">
         <div>
           <h3>${d.name}</h3>
-          <p class="small">${(d.description && d.description.slice(0,400)) || 'Descripción no disponible.'}</p>
+          <p class="small">
+            ${(d.description && d.description.slice(0, 400)) ||
+              "Descripción no disponible."}
+          </p>
           <div class="detail-grid small">
             <div><strong>Capital:</strong> ${capitalName}</div>
-            <div><strong>Municipios:</strong> ${d.municipalities ?? 'N/A'}</div>
-            <div><strong>Superficie:</strong> ${d.surface ? d.surface.toLocaleString() + ' km²' : 'N/A'}</div>
-            <div><strong>Población:</strong> ${d.population ? d.population.toLocaleString() : 'N/A'}</div>
-            <div><strong>Prefijo telefónico:</strong> ${d.phonePrefix ?? 'N/A'}</div>
+            <div><strong>Municipios:</strong> ${
+              d.municipalities ?? "N/A"
+            }</div>
+            <div><strong>Superficie:</strong> ${
+              d.surface ? d.surface.toLocaleString() + " km²" : "N/A"
+            }</div>
+            <div><strong>Población:</strong> ${
+              d.population ? d.population.toLocaleString() : "N/A"
+            }</div>
+            <div><strong>Prefijo telefónico:</strong> ${
+              d.phonePrefix ?? "N/A"
+            }</div>
           </div>
         </div>
       </div>
