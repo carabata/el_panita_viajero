@@ -1,6 +1,6 @@
 /**
  * index.js - flujo principal para "El panita viajero"
- * - Carga: Country (Colombia), Region (lista)
+ * - Carga: Información del país (Colombia), Region (lista)
  * - Al seleccionar región: carga Region/{id}/departments
  * - Al seleccionar departamento: carga Department/{id}
  * - Modo oscuro persistente en localStorage

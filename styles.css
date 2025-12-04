@@ -1,7 +1,6 @@
 /* ============================
    BASE Y VARIABLES PRINCIPALES
 =============================== */
-
 :root{
   /* Variables base */
   --bg: #f7fbff;
@@ -41,7 +40,6 @@
 /* =====================================
    MODO OSCURO (TONOS PASTEL PROFUNDOS)
 ======================================== */
-
 body.dark {
   --bg: #0b1220;
   --card: #0f1724;
@@ -60,7 +58,6 @@ body.dark {
 /* ============================
    RESET BÁSICO
 =============================== */
-
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 
@@ -77,7 +74,6 @@ body {
 /* ============================
    CONTAINER GENERAL
 =============================== */
-
 .container {
   max-width: 1100px;
   margin: 20px auto;
@@ -87,7 +83,6 @@ body {
 /* ============================
    HERO / HEADER
 =============================== */
-
 .hero {
   background: var(--hero-bg);
   border-bottom: 3px solid var(--hero-border);
@@ -126,7 +121,6 @@ body {
 /* ============================
    TOGGLE SWITCH
 =============================== */
-
 .controls {
   margin-top:12px;
   display:flex;
