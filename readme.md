@@ -2,8 +2,16 @@
 
 Aplicación educativa interactiva desarrollada en **JavaScript, HTML y CSS**, diseñada para explorar la información geográfica de **Colombia**, mediante datos obtenidos en tiempo real desde **api-colombia.com**.
 
-Repositorio oficial:  
+Repositorio GitHub:  
 👉 **https://github.com/carabata/el_panita_viajero.git**
+
+---
+
+## 🌐 Demo en vivo (GitHub Pages)
+
+Tu sitio ya está publicado y disponible aquí:
+
+🔗 **https://carabata.github.io/el_panita_viajero/**
 
 ---
 
