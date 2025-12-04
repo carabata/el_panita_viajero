@@ -139,9 +139,9 @@ function renderRegions(list) {
   });
 }
 
-// -------------------------
+// ------------------------------------
 // Select a region -> load departments
-// -------------------------
+// ------------------------------------
 async function selectRegion(region) {
   document.querySelector(".bottom-row").style.display = "none";
   currentRegion = region;
@@ -176,7 +176,9 @@ function renderRegionInfo(region) {
   `;
 }
 
+// ------------------------------------
 // Render departments list (right side)
+// ------------------------------------
 function renderDepartmentsList(deps) {
   departmentsList.innerHTML = '';
   if (!deps.length) {
@@ -193,9 +195,9 @@ function renderDepartmentsList(deps) {
   });
 }
 
-// -------------------------
+// -----------------------------------
 // Select and show department details
-// -------------------------
+// -----------------------------------
 async function selectDepartment(dep) {
   currentDepartment = dep;
   document.querySelector(".bottom-row").style.display = "flex";
@@ -241,9 +243,9 @@ function renderDepartmentDetail(d) {
   `;
 }
 
-// -------------------------
+// ------------------------------
 // Buscador de regiones (filtro)
- // -------------------------
+ // -----------------------------
 const regionSearchInput = document.getElementById('regionSearch');
 regionSearchInput.addEventListener('input', (e) => {
   const q = e.target.value.trim().toLowerCase();
