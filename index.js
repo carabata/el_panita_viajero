@@ -150,11 +150,11 @@ async function selectRegion(region) {
   // Mostrar region info
   renderRegionInfo(region);
   // Cargar departamentos de la region
-  setLoading(departmentsCard, 'Cargando departamentos...');
+  setLoading(departmentsCard, 'Cargando Departamentos...');
   departmentsList.innerHTML = '';
   try {
     const res = await fetch(`${API_BASE}/Region/${region.id}/departments`);
-    if (!res.ok) throw new Error('Error cargando departamentos');
+    if (!res.ok) throw new Error('Error cargando Departamentos');
     const deps = await res.json();
     currentDepartments = Array.isArray(deps) ? deps : [];
     renderDepartmentsList(currentDepartments);
@@ -162,7 +162,7 @@ async function selectRegion(region) {
     departmentsCard.appendChild(departmentsList.parentElement || departmentsList);
   } catch (err) {
     console.error(err);
-    setError(departmentsCard, 'No se pudieron cargar los departamentos de la región.');
+    setError(departmentsCard, 'No se pudieron cargar los Departamentos de la región.');
   }
 }
 
