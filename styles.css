@@ -387,10 +387,9 @@ main {
   margin-bottom: 40px;
 }
 
-/* ============================
-   RESPONSIVE — OPTIMIZADO
-=============================== */
-
+/* ==============================
+   RESPONSIVE PARA DISPOSITIVOS
+================================= */
 /* Móviles grandes y tablets pequeñas */
 @media (max-width: 920px) {
 
