@@ -1,6 +1,6 @@
 # 📘 El Panita Viajero — Colombia
 
-Aplicación educativa interactiva desarrollada en **JavaScript, HTML y CSS**, diseñada para explorar la información geográfica y cultural de **Colombia**, mediante datos obtenidos en tiempo real desde **api-colombia.com**.
+Aplicación educativa interactiva desarrollada en **JavaScript, HTML y CSS**, diseñada para explorar la información geográfica de **Colombia**, mediante datos obtenidos en tiempo real desde **api-colombia.com**.
 
 Repositorio oficial:  
 👉 **https://github.com/carabata/el_panita_viajero.git**
