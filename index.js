@@ -219,14 +219,30 @@ async function selectDepartment(dep) {
   }
 }
 
+// Normalizar nombres para que coincidan con imágenes en GitHub Pages
+function normalizeFileName(name) {
+  return name
+    .toLowerCase()
+    .normalize("NFD")                    // Separar acentos
+    .replace(/[\u0300-\u036f]/g, "")    // Quitar acentos
+    .replace(/[^a-z0-9]/g, "_")         // Reemplazar espacios y símbolos por _
+    .replace(/_+/g, "_")                // Evitar múltiples guiones bajos
+    .trim();
+}
+
 function renderDepartmentDetail(d) {
   clearCard(departmentDetail);
-  const img = `img/${d.name.toLowerCase()}.png`;
+  
+  const fileName = normalizeFileName(d.name);
+  const imgPath = `img/${fileName}.png`;
+
   const capitalName = (d.cityCapital && d.cityCapital.name) || d.cityCapital || 'No disponible';
+
   departmentDetail.innerHTML = `
     <div class="card-body">
       <div class="department-header">
-        <img src="${img}" alt="${d.name}" class="department-image" onerror="this.style.display='none'">
+        <img src="${imgPath}" alt="${d.name}" class="department-image"
+             onerror="this.src='img/default.png'">
         <div>
           <h3>${d.name}</h3>
           <p class="small">${(d.description && d.description.slice(0,400)) || 'Descripción no disponible.'}</p>
