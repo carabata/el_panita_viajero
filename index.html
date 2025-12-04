@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>El panita viajero — Colombia</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Meta -->
+  <meta name="description" content="El panita viajero - Aplicación educativa sobre Colombia. Datos de api-colombia.com" />
+</head>
+<body>
+  <!-- Decorative header -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <h1 class="title">El panita viajero</h1>
+        <p class="subtitle">Conoce las regiones y departamentos de Colombia de forma fácil y divertida 🌎</p>
+        <div class="controls">
+          <label class="switch" title="Cambiar tema">
+            <input id="themeToggle" type="checkbox" aria-label="Alternar tema oscuro" />
+            <span class="slider"></span>
+          </label>
+          <span id="themeLabel" class="theme-label">Modo claro</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="img/mapa-viaje-colombia.jpg" alt="Paisaje Colombia" class="hero-image">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="container">
+    <!-- Row 1: Colombia (70%) + Regiones (30%) -->
+    <section class="row top-row">
+      <article class="col left-col">
+        <div id="countryCard" class="card loading">
+          <!-- Country content loaded by JS -->
+          <div class="card-body">
+            <p class="muted">Cargando información del país...</p>
+          </div>
+        </div>
+      </article>
+
+      <aside class="col right-col">
+        <div class="card">
+          <div class="card-header">
+            <h3>Regiones</h3>
+            <input id="regionSearch" type="search" placeholder="Buscar región..." aria-label="Buscar región">
+          </div>
+          <ul id="regionsList" class="regions-list">
+            <!-- Lista de regiones generada por JS -->
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Row 2: Region info (left) + Departments list (right) -->
+    <section class="row mid-row" id="regionSection" aria-live="polite">
+      <article class="col left-col">
+        <div id="regionCard" class="card">
+          <!-- Info de la región seleccionada -->
+          <div class="card-body">
+            <p class="muted">Selecciona una región para ver su información</p>
+          </div>
+        </div>
+      </article>
+
+      <aside class="col right-col">
+        <div id="departmentsCard" class="card">
+          <div class="card-header">
+            <h3>Departamentos</h3>
+            <div id="departmentsControls" class="small muted">Haz clic en una región para cargar departamentos</div>
+          </div>
+          <ul id="departmentsList" class="regions-list">
+            <!-- Departments list -->
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Row 3: Department detail full width -->
+    <section class="row bottom-row">
+      <article class="col-full">
+        <div id="departmentDetail" class="card">
+          <div class="card-body">
+            <p class="muted">Selecciona un departamento para ver detalles</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>Dev senior Code</strong></p>
+        <img src="img/dev_senior.png" alt="Logo entidad" class="footer-logo">
+      </div>
+
+      <div class="footer-center">
+        <p><strong>Curso:</strong> JavaScript MEAN Mastery</p>
+        <p><strong>Asignatura:</strong> JavaScript cohorte 5</p>
+        <p><strong>Módulo 1:</strong> JavaScript Junior Developer: Web Foundations & Coding Skills</p>
+        <p><strong>Docente:</strong> Steven Zuluaga Cortes</p>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Proyecto integrador Final</strong></p>
+        <p>Alumno: <strong>Carlos Armando Abadía Taborda</strong></p>
+        <p>Ibagué – 2025</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main script -->
+  <script src="index.js"></script>
+</body>
+</html>

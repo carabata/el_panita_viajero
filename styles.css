@@ -1,0 +1,549 @@
+/* ============================
+   BASE Y VARIABLES PRINCIPALES
+=============================== */
+
+:root{
+  /* Variables base */
+  --bg: #f7fbff;
+  --card: #ffffff;
+  --text: #0f1724;
+  --muted: #6b7280;
+  --accent: #0d6efd;
+  --accent-2: #06b6d4;
+  --radius: 12px;
+  --glass: rgba(255,255,255,0.6);
+
+  /* PALETA 1 - TONOS PASTEL (MODO CLARO) */
+  --azul-pastel: #A3C4F3;
+  --menta-pastel: #BEEAD7;
+  --crema-pastel: #FDF8F2;
+  --melocoton-pastel: #FAD2CF;
+  --amarillo-pastel: #FFF4BD;
+
+  /* Colores dinámicos */
+  --hero-bg: var(--azul-pastel);
+  --hero-border: var(--menta-pastel);
+  --card-bg: var(--melocoton-pastel);
+  --list-bg: var(--amarillo-pastel);
+  --list-hover: var(--menta-pastel);
+  --body-bg: var(--crema-pastel);
+
+  /* Tipografía */
+  --font-title: "Poppins", "Baloo 2", sans-serif;
+  --font-body: "Poppins", "Inter", sans-serif;
+
+  /* Tamaños mejorados */
+  --fs-title: 2.4rem;
+  --fs-card-title: 1.35rem;
+  --fs-card-text: 1.05rem;
+}
+
+/* ============================
+   MODO OSCURO (TONOS PASTEL PROFUNDOS)
+=============================== */
+
+body.dark {
+  --bg: #0b1220;
+  --card: #0f1724;
+  --text: #e6eef7;
+  --muted: #9aa4b2;
+
+  /* PALETA PASTEL MODO OSCURO */
+  --hero-bg: #4B5D75;
+  --hero-border: #7A8793;
+  --card-bg: #6A5D7B;
+  --list-bg: #5E6B73;
+  --list-hover: #7A8793;
+  --body-bg: #2F3A45;
+}
+
+/* ============================
+   RESET BÁSICO
+=============================== */
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: linear-gradient(180deg, var(--body-bg), #ffffff);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background .25s, color .25s;
+}
+
+/* ============================
+   CONTAINER GENERAL
+=============================== */
+
+.container {
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+/* ============================
+   HERO / HEADER
+=============================== */
+
+.hero {
+  background: var(--hero-bg);
+  border-bottom: 3px solid var(--hero-border);
+  color: var(--text);
+  padding: 28px 0;
+  transition: background .25s, border-color .25s;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.hero-left { flex: 1; }
+.hero-right { width: 260px; }
+
+.title {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: var(--fs-title);
+  margin-bottom: 6px;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.subtitle {
+  margin:0;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* ============================
+   TOGGLE SWITCH
+=============================== */
+
+.controls {
+  margin-top:12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.theme-label {
+  font-size:0.9rem;
+  color:var(--muted);
+  margin-left:6px;
+}
+
+.switch {
+  position:relative;
+  display:inline-block;
+  width:52px;
+  height:30px;
+}
+
+.switch input {
+  display:none;
+}
+
+.slider {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,#fff,#f1f5f9);
+  border-radius:30px;
+  box-shadow:0 2px 6px rgba(2,6,23,0.06);
+  transition: background .25s;
+}
+
+.slider:before {
+  content:'';
+  position:absolute;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  left:4px;
+  top:4px;
+  background:var(--accent);
+  transition:transform .22s ease, background .25s;
+}
+
+.switch input:checked + .slider {
+  background:linear-gradient(180deg,#111827,#0b1220);
+}
+
+.switch input:checked + .slider:before {
+  transform:translateX(22px);
+  background:var(--accent-2);
+}
+
+/* ============================
+   HERO IMAGE
+=============================== */
+
+.hero-image {
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.06);
+}
+
+/* ============================
+   ROWS & LAYOUT
+=============================== */
+
+.row {
+  display:flex;
+  gap:18px;
+  margin-top:18px;
+  align-items: stretch;
+}
+
+.top-row .left-col,
+.mid-row .left-col { flex:0 0 70%; }
+
+.top-row .right-col,
+.mid-row .right-col { flex:0 0 30%; }
+
+.bottom-row .col-full { flex:1; }
+
+.row .col,
+.row .left-col,
+.row .right-col,
+.row .col-full {
+  display:flex;
+}
+
+.row .card {
+  flex:1;
+}
+
+/* ============================
+   CARDS (MEJORADAS)
+=============================== */
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+  overflow:hidden;
+  transition: background .25s, border-color .25s, transform .18s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card .card-header {
+  padding:12px 14px;
+  border-bottom:1px solid rgba(0,0,0,0.04);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.card .card-body { 
+  padding:14px;
+  font-size: var(--fs-card-text); 
+  line-height: 1.55;
+}
+
+/* Mejoramos los títulos dentro de las cards */
+.card .card-header h2,
+.card .card-body h3 {
+  font-size: var(--fs-card-title);
+  font-weight: 600;
+  margin:0 0 6px 0;
+  font-family: var(--font-title);
+}
+
+/* ============================
+   COUNTRY CARD
+=============================== */
+
+#countryCard .country-grid {
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+}
+
+.country-flag {
+  width:110px;
+  height:72px;
+  object-fit:cover;
+  border-radius:8px;
+  border:2px solid rgba(0,0,0,0.04);
+}
+
+.country-info h2 {
+  margin:0 0 6px 0;
+  color: var(--text);
+}
+
+.country-meta {
+  margin-top:8px;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+
+/* ============================
+   REGIONS LIST
+=============================== */
+
+.regions-list {
+  list-style:none;
+  margin:0;
+  padding:10px;
+  max-height:420px;
+  overflow:auto;
+}
+
+.regions-list li {
+  background: var(--list-bg);
+  padding:10px;
+  border-radius:10px;
+  cursor:pointer;
+  margin-bottom:8px;
+  transition: background .25s, transform .15s;
+}
+
+.regions-list li:hover {
+  background: var(--list-hover);
+  transform: translateX(4px);
+}
+
+.regions-list li.active {
+  background:linear-gradient(90deg, rgba(13,110,253,0.10), rgba(6,182,212,0.06));
+  font-weight:600;
+}
+
+.small {
+  font-size:0.85rem;
+  color:var(--muted);
+}
+
+/* ============================
+   DEPARTMENT DETAIL
+=============================== */
+
+.department-header {
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.department-image {
+  width:320px;
+  height:200px;
+  object-fit:cover;
+  border-radius:8px;
+}
+
+.detail-grid {
+  display:flex;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+/* ============================
+   FOOTER
+=============================== */
+
+.site-footer {
+  background: #0d1b2a;
+  color: #e0e6ed;
+  margin-top: 60px;
+  padding: 40px 20px 50px;
+  border-top: 4px solid #06b6d4;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-content p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+.footer-logo {
+  width: 120px;
+  margin-top: 10px;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  min-width: 220px;
+}
+
+main {
+  margin-bottom: 40px;
+}
+
+/* ============================
+   RESPONSIVE — OPTIMIZADO
+=============================== */
+
+/* Móviles grandes y tablets pequeñas */
+@media (max-width: 920px) {
+
+  /* Sección Hero */
+  .hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.5rem;
+  }
+
+  .hero-left h1 {
+    font-size: 2rem; /* Ajuste más cómodo en pantallas pequeñas */
+  }
+
+  .hero-left p {
+    font-size: 1rem;
+  }
+
+  .hero-right {
+    width: 100%;
+  }
+
+  .hero-right img {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Layout de contenido */
+  .top-row,
+  .mid-row {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .top-row .left-col,
+  .top-row .right-col,
+  .mid-row .left-col,
+  .mid-row .right-col {
+    flex: 1;
+    width: 100%;
+  }
+
+  /* Cards */
+  .card {
+    padding: 1.2rem 1.4rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
+  }
+
+  /* Listado de regiones */
+  .regions-list {
+    max-height: 260px;
+    padding: 0.8rem;
+  }
+
+  .regions-list li {
+    font-size: 0.95rem;
+    padding: 0.4rem 0;
+  }
+}
+
+/* Tablets (entre 600px y 768px) */
+@media (max-width: 768px) {
+
+  .hero-left h1 {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    padding: 1rem 1.2rem;
+  }
+
+  .card-text {
+    font-size: 0.95rem;
+  }
+
+  .regions-list {
+    max-height: 240px;
+  }
+}
+
+/* Móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+
+  body {
+    padding: 0 1rem;
+  }
+
+  .hero-left h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+  }
+
+  .hero-left p {
+    font-size: 0.9rem;
+  }
+
+  /* Cards FULL width */
+  .card {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .regions-list {
+    max-height: 200px;
+  }
+}
+
+/* Pantallas grandes (más de 1400px) */
+@media (min-width: 1400px) {
+
+  .hero-left h1 {
+    font-size: 3rem;
+  }
+
+  .hero-left p {
+    font-size: 1.25rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  .card-title {
+    font-size: 1.7rem;
+  }
+
+  .card-text {
+    font-size: 1.15rem;
+  }
+}
+
